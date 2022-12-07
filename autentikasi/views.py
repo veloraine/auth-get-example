@@ -16,7 +16,7 @@ def django_register(request):
         email = request.POST['email']
         if password1 != password2:
             return JsonResponse({'status': 'failed', 'message': 'Gagal woi'})
-        User.objects.create(username=username, password=password1, email=email)
+        User.objects.create_user(username=username, password=password1, email=email)
         return JsonResponse({'status': 'success'})
 
 @csrf_exempt
